@@ -1,0 +1,7 @@
+app-env/
+.env
+
+__pycache__/
+*.pyc[cod]
+
+.py_test_cache/
