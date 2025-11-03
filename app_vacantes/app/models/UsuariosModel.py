@@ -9,7 +9,6 @@ class RolModel(db.Model):
     usuarios = db.relationship('UsuariosModel', back_populates='rol', lazy=True) # Relación inversa
 
     def to_dict(self):
-        """Serializar RolModel a diccionario."""
         return {
             'id': self.id,
             'nombre_rol': self.nombre_rol

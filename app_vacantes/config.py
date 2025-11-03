@@ -24,6 +24,7 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # Desactivar para evitar warnings. Consume recursos
     
     JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")  # Cambiar en producción
+    SECRET_KEY = os.getenv("SECRET_KEY", JWT_SECRET_KEY)
     
     # Token para hacer operaciones autenticadas.
     JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=24)  # Duración del token de acceso
