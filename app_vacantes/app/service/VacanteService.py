@@ -8,7 +8,7 @@ class VacanteService:
     @staticmethod
     def crear_vacante(usuario_creador_id, nombre_vacante, descripcion=None, detalles=None):
         if not nombre_vacante:
-            return {'error': 'Faltan campos obligatorios (nombre)'}, 400
+            return {'error': 'Faltan campos obligatorios (nombre_vacante)'}, 400
 
         # verificar que creador exista y sea reclutador si se desea (validación en routes también)
         usuario_creador = UsuariosModel.query.get(usuario_creador_id)
@@ -16,12 +16,12 @@ class VacanteService:
             return {'error': f'Usuario creador con id {usuario_creador_id} no encontrado'}, 404
 
         nueva_vacante = VacanteModel(
-            nombre_vacante=nombre_vacante,
-            descripcion=descripcion,
-            detalles=detalles,
-            fecha_publicacion=datetime.utcnow(),
-            fecha_edicion=None,
-            estado='Disponible',
+            nombre_vacante = nombre_vacante,
+            descripcion = descripcion,
+            detalles = detalles,
+            fecha_publicacion = datetime.utcnow(),
+            fecha_edicion = None,
+            estado = 'Disponible',
             usuario_creador_id = usuario_creador_id
         )
         try:
@@ -43,7 +43,7 @@ class VacanteService:
             return {'error': 'No autorizado: solo el creador puede editar'}, 403
 
         if 'nombre_vacante' in datos_actualizados:
-            vacante.nombre = datos_actualizados['nombre_vacante']
+            vacante.nombre_vacante = datos_actualizados['nombre_vacante']
         if 'descripcion' in datos_actualizados:
             vacante.descripcion = datos_actualizados['descripcion']
         if 'detalles' in datos_actualizados:
@@ -92,11 +92,11 @@ class VacanteService:
         if vacante.estado == 'Ocupada':
             return {'error': 'Vacante ya está ocupada'}, 400
 
-        usuario_postulante_id = UsuariosModel.query.get(usuario_postulante_id)
-        if not usuario_postulante_id:
+        usuario_postulante = UsuariosModel.query.get(usuario_postulante_id)
+        if not usuario_postulante:
             return {'error': f'Postulante con id {usuario_postulante_id} no encontrado'}, 404
 
-        vacante.usuario_postulante_id = usuario_postulante_id
+        vacante.usuario_postulante_id = usuario_postulante.id
         vacante.estado = 'Ocupada'
         vacante.fecha_edicion = datetime.utcnow()
 

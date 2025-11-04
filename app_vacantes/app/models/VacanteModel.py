@@ -34,4 +34,4 @@ class VacanteModel(db.Model):
             'usuario_creador': self.usuario_creador.nombre_usuario if self.usuario_creador else None,
             'usuario_postulante': self.usuario_postulante.nombre_usuario if self.usuario_postulante else None
         }
-
+    

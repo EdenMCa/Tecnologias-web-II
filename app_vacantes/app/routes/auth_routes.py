@@ -8,7 +8,7 @@ auth_bp = Blueprint('auth', __name__)
 @auth_bp.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    nombre_usuario = data.get('nombre_usuario'),
+    nombre_usuario = data.get('nombre_usuario')
     password = data.get('password')
     
     auth_usuario = AuthUsuarioService.authenticateUser(
@@ -22,7 +22,7 @@ def login():
             identity=str(auth_usuario.id), 
             # opcional para agregar más información al token o si queremos hacer validaciones en endpoints
             additional_claims={
-                "role": nombre_rol
+                "rol": nombre_rol
             }
         )
         refresh_token = create_refresh_token(identity=str(auth_usuario.id))
