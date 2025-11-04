@@ -23,7 +23,7 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False  # Desactivar para evitar warnings. Consume recursos
     
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")  # Cambiar en producción
+    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY") 
     SECRET_KEY = os.getenv("SECRET_KEY", JWT_SECRET_KEY)
     
     # Token para hacer operaciones autenticadas.
