@@ -80,7 +80,7 @@ def detalle_vacante(vacante_id):
     except Exception:
         jwt_data = None
 
-    # si no autenticado y vacante no disponible -> deny
+    # si no autenticado y vacante no disponible -
     if not jwt_data and vacante.get('estado') != 'Disponible':
         return jsonify({'error': 'No autorizado para ver esta vacante'}), 403
 
