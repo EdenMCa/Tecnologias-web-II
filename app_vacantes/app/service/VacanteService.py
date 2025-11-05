@@ -10,7 +10,7 @@ class VacanteService:
         if not nombre_vacante:
             return {'error': 'Faltan campos obligatorios (nombre_vacante)'}, 400
 
-        # verificar que creador exista y sea reclutador si se desea (validación en routes también)
+        # verificar que creador exista y sea reclutador
         usuario_creador = UsuariosModel.query.get(usuario_creador_id)
         if not usuario_creador:
             return {'error': f'Usuario creador con id {usuario_creador_id} no encontrado'}, 404
