@@ -25,9 +25,9 @@ class UsuarioService:
 
         # Crear el nuevo usuario
         nuevo_usuario = UsuariosModel(
-            nombre_usuario=nombre_usuario,
-            password=password,
-            rol_id=rol_id
+            nombre_usuario = nombre_usuario,
+            password = password,
+            rol_id = rol_id
         )
         
         # Try except para manejar errores al guardar en la base de datos

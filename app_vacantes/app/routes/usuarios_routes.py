@@ -24,9 +24,9 @@ def obtener_todos():
 def crear_usuario():
     nuevo = request.get_json() or {}
     respuesta, status = UsuarioService.crear_usuario(
-        nombre_usuario=nuevo.get('nombre_usuario'),
-        password=nuevo.get('password'),
-        rol_id=nuevo.get('rol_id')
+        nombre_usuario = nuevo.get('nombre_usuario'),
+        password = nuevo.get('password'),
+        rol_id = nuevo.get('rol_id')
     )
     return jsonify(respuesta), status
 
