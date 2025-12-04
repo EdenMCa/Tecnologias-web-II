@@ -21,7 +21,7 @@ function TaskList({ title, tasks, onToggleComplete, onDelete, emptyMessage, colo
   // ========== SI HAY TAREAS, SE MUESTRA LA LISTA ==========
   // RENDERIZADO DE LISTAS con map()
   return (
-    <div className="task-column">
+    <div className="task-column"> {/* Contenedor principal de la columna de tareas */}
       <div className="column-header" style={{ borderColor: color }}> {/* Encabezado de la columna con un borde cuyo color llega como prop */}
         <h3>{title}</h3>
         <span className="task-count">{tasks.length}</span> {/* Contador de tareas */}
