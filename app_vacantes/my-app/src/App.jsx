@@ -81,7 +81,7 @@ function App() {
 
           {/* COLUMNA: TAREAS PENDIENTES */}
           <TaskList
-            title="📥 Pendientes" // Titulo 
+            title="⚠️ Pendientes" // Titulo 
             tasks={pendingTasks} // Pasamos las tareas pendientes
             onToggleComplete={handleToggleComplete}  // Función para marcar como completada
             onDelete={handleDeleteTask}  // Función para eliminar tarea

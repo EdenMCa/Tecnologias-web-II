@@ -36,7 +36,7 @@ function TaskItem({ task, onToggleComplete, onDelete }) {
           className={`btn ${task.completed ? 'btn-secondary' : 'btn-primary'}`} // Clase condicional para el botón cambia según el estado de la tarea
           onClick={() => onToggleComplete(task.id)} // Llamamos a la función onToggleComplete pasando el ID de la tarea
         >
-          {task.completed ? '↩️ Desmarcar' : '✓ Completar'}
+          {task.completed ? '↩️ Desmarcar' : '☑️ Completar'}
         </button>
         
         {/* Botón para ELIMINAR TAREA */}
